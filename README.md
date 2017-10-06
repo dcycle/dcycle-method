@@ -26,11 +26,11 @@ Deployment
 * D.050 (v1-...) If applicable, stage and prod environments are referenced in the project README.md file.
 * D.040.010 (v1-...) The dev environment, deployed using `./scripts/deploy.sh dev`, should include all tools or information required or useful for development, such as the devel module for Drupal projects. The dev environment can contain unsafe passwords, for example for logging into a system.
 * D.040.015 (v1-...) If a stage and production environment exist, a project Docker registry is required to store snapshots of images. 
-* D.040.020 (v1-...) The stage environment, if applicable, should contain only tools or information required for production, and is built from scratch. For example, if your projects uses a base image and installs components via Composer, this is done when the stage environment is created or updated via `./scripts/deploy.sh stage`. The Docker image(s) built during the stage deployment process should be sent to the Docker registry using the tag <branch>.
+* D.040.020 (v1-...) The stage environment, if applicable, should contain only tools or information required for production, and is built from scratch. For example, if your projects uses a base image and installs components via Composer, this is done when the stage environment is created or updated via `./scripts/deploy.sh up stage`. The Docker image(s) built during the stage deployment process should be sent to the Docker registry using the tag <branch>.
 * D.040.025 (v1-...) A deployment system such as Jenkins should be available to deploy project branches to the stage environment. 
 * D.040.027 (v1-...) It should be possible to see the current branch and commit number on the stage environment. 
-* D.040.030 (v1-...) The production environment, if applicable, should be built by `./scripts/deploy.sh prod` from Docker images taken from the stage environment and stored in the Docker registry using the tag <master>.
-* D.050 (v1-...) `./scripts/deploy.sh dev|stage|prod` is the only accepted means to deploy a project. `docker-compose down` or `docker-compose down -v` is the only accepted means to destroy an environment, the former keeps data and the latter destroys data.
+* D.040.030 (v1-...) The production environment, if applicable, should be built by `./scripts/deploy.sh up prod` from Docker images taken from the stage environment and stored in the Docker registry using the tag <master>.
+* D.050 (v1-...) `./scripts/deploy.sh up dev|stage|prod` is the only accepted means to deploy a project. `./scripts/deploy.sh down dev|stage|prod` or `./scripts/deploy.sh destroy dev|stage|prod` is the only accepted means to destroy an environment, the former keeps data and the latter destroys data.
 * D.060 (v1-...) backups of production data, if applicable, should be performed daily by a continuous integration system, documented in the project README.md file.
 * D.070 (v1-...) security updates must be automated.
 
@@ -49,7 +49,7 @@ Each modification to the codebase must be manually and/or automatically reviewed
 * DOD.070 (v1-...) Deployment cannot require manual steps (for example, we need to install Drupal in the command line, not using the GUI).
 * DOD.080 (v1-...) Deployment must be done within Docker containers, with no need to any additional software to servers other than Docker and Docker-compose.
 * DOD.090 (v1-...) Containers should be immutable; that is, destroying and recreating a container should have no effect on the application.
-* DOD.100 (v1-...) Initial and incremental deployments should happen in single command, `./scripts/deploy.sh dev|stage|prod`, documented in the README.md file; the user should obtain everything needed in the output.
+* DOD.100 (v1-...) Initial and incremental deployments should happen in single command, `./scripts/deploy.sh up dev|stage|prod`, documented in the README.md file; the user should obtain everything needed in the output.
 * DOD.110 (v1-...) Anything not required on production should be only on dev: ./deploy.sh can use a dev Dockerfile which is based on the production Dockerfile. For example, in the case of Drupal, Dockerfile-dev might contain a command to download and install the devel module.
 * DOD.120 (v1-...) Code needs to be understandable just by reading it with minimal context. This may require extensive commenting.
 * DOD.130 (v1-...) Relative paths need to be ./in/this/format, not/this/format.
