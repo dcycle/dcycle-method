@@ -34,7 +34,7 @@ Deployment
 * D.050 (v1-...) `./scripts/deploy.sh up dev|stage|prod` is the only accepted means to deploy a project. `./scripts/deploy.sh down dev|stage|prod` or `./scripts/deploy.sh destroy dev|stage|prod` is the only accepted means to destroy an environment, the former keeps data and the latter destroys data.
 * D.060 (v1-...) backups of production data, if applicable, should be performed daily by a continuous integration system, documented in the project README.md file.
 * D.070 (v1-...) security updates must be automated.
-* D.075 (v1-...) for local development, ports can be mapped to host ports (random if possible). For stage and production, no ports are used, we will use [a reverse proxy to manage traffic](http://blog.dcycle.com/blog/170a6078/letsencrypt-drupal-docker/).
+* D.075 (v1-...) for local development, ports can be mapped to host ports (random if possible). For production, no ports are used, we will use [a reverse proxy to manage traffic](http://blog.dcycle.com/blog/170a6078/letsencrypt-drupal-docker/). For stage, a reverse proxy is used for acceptance testing, and ports are used for automated CI testing with no reverse proxy.
 
 Definition of done
 -----
