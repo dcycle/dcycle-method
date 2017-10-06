@@ -20,6 +20,7 @@ Deployment
 -----
 
 * D.010 (v1-...) All deployment should be in Docker containers, except if done to managed hosting such as Pantheon or Acquia, or an existing legacy hosting system, in which case the project docker containers should mimic as best they can the production environment.
+* D.015 (v1-...) Environment variables should be in a file called ~/.MYPROJECTNAME.TARGET.env (project name should be similar to your repo name, and TARGET should be dev, stage, or prod, as per D040), with an example in ./examples/env_file/MYPROJECTNAME.TARGET.env, and a ./examples/env_file/README.md which explains how to set up the env_file. The deployment script (see D.050) should provide instructions on how to set up ~/.MYPROJECTNAME.TARGET.env if it does not exist.
 * D.020 (v1-...) The canonical deployment method, on dev, stage, or production (notwithstanding the above) should use Docker-compose and Docker containers exclusively. In cases where certain users cannot use Docker, for example if it's too slow on Mac OS, and prefer to use an alternative means such as DrupalVM or MAMP, the only supported method remains Docker.
 * D.030 (v1-...) Docker-compose is used to set up the container structure.
 * D.040 (v1-...) Target environments are: the dev environment, always applicable; the stage and production environments are applicable to websites, not projects such as Drupal modules.
