@@ -35,6 +35,7 @@ Deployment
 * D.060 (v1-...) backups of production data, if applicable, should be performed daily by a continuous integration system, documented in the project README.md file.
 * D.070 (v1-...) security updates must be automated.
 * D.075 (v1-...) for local development, ports can be mapped to host ports (random if possible). For production, no ports are used, we will use [a reverse proxy to manage traffic](http://blog.dcycle.com/blog/170a6078/letsencrypt-drupal-docker/). For stage, a reverse proxy is used for acceptance testing, and ports are used for automated CI testing with no reverse proxy.
+* D.080 (v1-...) new files should be linted.
 
 Definition of done
 -----
