@@ -36,6 +36,8 @@ Deployment
 * D.070 (v1-...) security updates must be automated.
 * D.075 (v1-...) for local development, ports can be mapped to host ports (random if possible). For production, no ports are used, we will use [a reverse proxy to manage traffic](http://blog.dcycle.com/blog/170a6078/letsencrypt-drupal-docker/). For stage, a reverse proxy is used for acceptance testing, and ports are used for automated CI testing with no reverse proxy.
 * D.080 (v1-...) new files should be linted.
+* 0.b745d256 (draft) it should be possible to export data to a human-readable format, then re-import it.
+* 0.a043cb0a (draft) it should be possible to rebuild any server and test that it works, using one command (for example a prod server may have two projects, and a reverse proxy).
 
 Definition of done
 -----
