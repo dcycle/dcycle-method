@@ -6,7 +6,7 @@ Introduction
 
 The Dcycle method defines a development method. If you are using the Dcycle method for your project, you can enter this into your project's README.md file:
 
-> Using the [Dcycle method](https://github.com/dcycle/dcycle-method) version 1.
+> Using the [Dcycle method](https://github.com/dcycle/dcycle-method) version x.
 
 Each bullet point in this document has the method version in parentheses, for example `(v1-...)` means version 1 and over, `(v1-v3)` means version 1 to 3, etc. If this method does not suit your needs, feel free to fork this code and create your own.
 
@@ -20,7 +20,7 @@ Deployment
 -----
 
 * D.010 (v1-...) All deployment should be in Docker containers, except if done to managed hosting such as Pantheon or Acquia, or an existing legacy hosting system, in which case the project docker containers should mimic as best they can the production environment.
-* D.015 (v1-...) Environment variables should be in a file or files in ~/.MYPROJECTNAME/ (project name should be similar to your repo name), with examples in ./examples/env_files, and a ./examples/env_files/README.md which explains how to set up the env_file. The deployment script (see D.050) should provide instructions on how to set up environment files if they do not exist; or it should be done automatically.
+* D.015 (v1-...) Environment variables should be in a file or files in ~/.MYPROJECTNAME/ (project name should be similar to your repo name), with examples in PROJECT_ROOT/examples/env_files, and a PROJECT_ROOT/examples/env_files/README.md which explains how to set up the env_file. The deployment script (see D.050) should provide instructions on how to set up environment files if they do not exist; or it should be done automatically.
 * D.020 (v1-...) The canonical deployment method, on dev, stage, or production (notwithstanding the above) should use Docker-compose and Docker containers exclusively. In cases where certain users cannot use Docker, for example if it's too slow on Mac OS, and prefer to use an alternative means such as DrupalVM or MAMP, the only supported method remains Docker.
 * D.030 (v1-...) Docker-compose is used to set up the container structure.
 * D.040 (v1-...) Target environments are: the dev environment, always applicable; the stage and production environments are applicable to websites, not projects such as Drupal modules.
